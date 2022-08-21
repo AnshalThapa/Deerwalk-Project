@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<ctype.h>
 
 void output(char x[10]);
 int check(char x[10]);
@@ -6,15 +7,22 @@ main()
 {
     int i,j,n,k,l;
     char x[10] = {'0','1','2','3','4','5','6','7','8','9'};
-    char mark;
-    printf("1st Player = X & 2nd Player = O\n");
+    char mark,choice;
+    printf("\n\t\t\t   GAME OF TIC TAC TOE! ");
+    printf("\n\t\t > Press s to start the game");
+    printf("\n\t\t > press any other key to quit             ");
+    choice=tolower(getch());
+    if(choice=='s'){
+
+
+    printf("\n\t\t\t1st Player = X & 2nd Player = O\n");
 
     for(n=1;n<10;++n)
             {
                 k=n;
                 output(x);
                 k = (k%2)?1:2;
-                printf("Enter value by Player %d. \n Choose the number: ",k);
+                printf("\n\t\t\tEnter value by Player %d. \n Choose the number: ",k);
                 scanf("%d",&i);
                 mark = (k==1)?'X':'O';
 
@@ -47,31 +55,36 @@ main()
 
                 else
                 {
-                    printf("Invalid move ");
+                    printf("\n\t\t\tInvalid move ");
                     n--;
 
                 }
                 l = check(x);
                 if (l==1){
-                    printf("Player %d win ", k);
+                    printf("\n\t\t\tPlayer %d win ", k);
                     break;}
                     else if(l==2)
                     {
                         continue;
                     }
                 else{
-                    printf("Game draw");
+                    printf("\n\t\t\tGame draw");
                     break;
                 }
             }
             printf("\n");
     output(x);
+    }
+    else{
+        printf("\n\t\t\t   THANK YOU! ");
+    }
 }
 
 
 void output(char x[10])
 {
     int i;
+    printf("\n\n\n");
     for(i=1;i<10;i++)
     {
         printf("\t%c\t",x[i]);
